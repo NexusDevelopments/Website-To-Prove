@@ -8,6 +8,9 @@ import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
+import RefundPage from './pages/RefundPage';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -47,6 +50,9 @@ function App() {
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/terms-of-service" element={<TermsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPage />} />
+          <Route path="/refund-policy" element={<RefundPage />} />
         </Routes>
       </main>
       <Footer />

@@ -1,8 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
 function Navbar({ onOpenCart }) {
   const { count } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="site-header">
@@ -12,11 +16,20 @@ function Navbar({ onOpenCart }) {
           Mastery Of Sales
         </Link>
         <nav className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/shop">Shop</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+          <NavLink to="/shop" onClick={closeMenu}>Shop</NavLink>
+          <NavLink to="/about" onClick={closeMenu}>About</NavLink>
+          <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
         </nav>
+        <button
+          type="button"
+          className="mobile-toggle"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
         <button type="button" onClick={onOpenCart} className="cart-button">
           <svg
             className="cart-icon"
@@ -36,6 +49,17 @@ function Navbar({ onOpenCart }) {
           <span className="cart-count">{count}</span>
         </button>
       </div>
+      {menuOpen && (
+        <nav className="mobile-nav" aria-label="Mobile navigation">
+          <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+          <NavLink to="/shop" onClick={closeMenu}>Shop</NavLink>
+          <NavLink to="/about" onClick={closeMenu}>About</NavLink>
+          <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+          <NavLink to="/terms-of-service" onClick={closeMenu}>Terms</NavLink>
+          <NavLink to="/privacy-policy" onClick={closeMenu}>Privacy</NavLink>
+          <NavLink to="/refund-policy" onClick={closeMenu}>Refund</NavLink>
+        </nav>
+      )}
     </header>
   );
 }

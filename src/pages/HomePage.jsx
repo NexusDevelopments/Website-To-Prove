@@ -47,6 +47,20 @@ function HomePage() {
       </section>
 
       <section className="container section-heading">
+        <div className="trust-strip">
+          <article>
+            <h3>25+ Years</h3>
+            <p>Cybersecurity sales experience</p>
+          </article>
+          <article>
+            <h3>$250M+</h3>
+            <p>Career revenue influenced</p>
+          </article>
+          <article>
+            <h3>Framework Based</h3>
+            <p>Built for repeatable execution</p>
+          </article>
+        </div>
         <h2>Our Audio Books</h2>
         <p>Practical cybersecurity sales frameworks, audiobooks, and field-tested systems.</p>
       </section>

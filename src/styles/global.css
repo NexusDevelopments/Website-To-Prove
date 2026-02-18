@@ -20,6 +20,15 @@ body {
   font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 a {
@@ -67,11 +76,42 @@ a {
 
 .nav-links a {
   color: var(--muted);
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 .nav-links a.active {
   color: var(--text);
   font-weight: 600;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #111;
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.mobile-toggle {
+  display: none;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 1rem;
+}
+
+.mobile-nav {
+  display: none;
 }
 
 .btn {
@@ -84,6 +124,12 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
 }
 
 .btn-primary,
@@ -179,7 +225,7 @@ a {
 }
 
 .section-heading {
-  margin: 34px auto 16px;
+  margin: 44px auto 22px;
 }
 
 .section-heading p {
@@ -198,6 +244,13 @@ a {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.16);
+  border-color: rgba(17, 17, 17, 0.18);
 }
 
 .product-image {
@@ -212,8 +265,29 @@ a {
   padding: 14px;
 }
 
+.product-body h3 {
+  margin: 10px 0 8px;
+}
+
 .product-body p {
   color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meta-tag {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
 }
 
 .product-actions {
@@ -265,6 +339,29 @@ a {
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 0.75rem;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.trust-strip article {
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.trust-strip h3 {
+  margin: 0;
+}
+
+.trust-strip p {
+  margin: 6px 0 0;
+  color: var(--muted);
 }
 
 .product-detail {
@@ -347,6 +444,24 @@ a {
   padding: 60px 0;
 }
 
+.policy-page {
+  max-width: 860px;
+}
+
+.policy-page article {
+  margin-top: 20px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+}
+
+.policy-page ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
 .info-layout {
   display: grid;
   gap: 20px;
@@ -400,9 +515,25 @@ a {
 .site-footer {
   margin-top: 40px;
   border-top: 1px solid rgba(17, 17, 17, 0.08);
-  padding: 24px 0;
+  padding: 30px 0 20px;
   color: var(--muted);
   background: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.footer-grid h4 {
+  color: #111;
+  margin: 0 0 8px;
+}
+
+.footer-grid p {
+  margin: 0;
 }
 
 .footer-content {
@@ -413,10 +544,9 @@ a {
 }
 
 .footer-links {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  gap: 8px;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 .footer-links a {
@@ -501,12 +631,38 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .trust-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
   .info-grid,
   .subscribe-form {
     grid-template-columns: 1fr;
   }
 
-  .nav-links {
+  .nav-links,
+  .announcement {
     display: none;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav {
+    display: grid;
+    gap: 10px;
+    padding: 12px 4% 16px;
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+    background: #fff;
+  }
+
+  .mobile-nav a {
+    color: #111;
+    padding: 8px 4px;
   }
 }

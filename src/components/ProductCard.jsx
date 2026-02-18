@@ -13,7 +13,10 @@ function ProductCard({ product }) {
     >
       <img src={product.image} alt={product.title} className="product-image" />
       <div className="product-body">
-        <span className="badge">{product.badge}</span>
+        <div className="card-meta">
+          <span className="badge">{product.badge}</span>
+          <span className="meta-tag">Digital Download</span>
+        </div>
         <h3>{product.title}</h3>
         <p>{product.subtitle}</p>
         <strong>${product.price.toFixed(2)}</strong>
