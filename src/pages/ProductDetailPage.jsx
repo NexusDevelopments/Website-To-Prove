@@ -55,6 +55,15 @@ function ProductDetailPage() {
         <h1>{product.title}</h1>
         <p>{product.description}</p>
         <h3>${product.price.toFixed(2)}</h3>
+
+        {product.highlights?.length ? (
+          <ul className="product-highlight-list">
+            {product.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+
         <div className="product-actions">
           <button className="btn btn-primary" onClick={() => addToCart(product)}>
             Add to cart
@@ -77,6 +86,21 @@ function ProductDetailPage() {
             </div>
           )}
         </div>
+
+        {product.sections?.length ? (
+          <div className="product-sections">
+            {product.sections.map((section) => (
+              <article key={section.title} className="detail-section">
+                <h3>{section.title}</h3>
+                <ul>
+                  {section.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );

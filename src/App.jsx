@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
@@ -11,10 +11,35 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [pageLoading, setPageLoading] = useState(false);
+  const location = useLocation();
+  const firstLoadRef = useRef(true);
+
+  useEffect(() => {
+    if (firstLoadRef.current) {
+      firstLoadRef.current = false;
+      return;
+    }
+
+    setPageLoading(true);
+    const timer = setTimeout(() => {
+      setPageLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, location.search, location.hash]);
 
   return (
     <div className="app-shell">
       <Navbar onOpenCart={() => setCartOpen(true)} />
+      {pageLoading && (
+        <div className="page-loader" role="status" aria-live="polite">
+          <div className="page-loader-card">
+            <div className="spinner" />
+            <p>Loading page...</p>
+          </div>
+        </div>
+      )}
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
