@@ -24,7 +24,7 @@ function App() {
     setPageLoading(true);
     const timer = setTimeout(() => {
       setPageLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [location.pathname, location.search, location.hash]);
