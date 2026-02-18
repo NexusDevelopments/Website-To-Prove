@@ -31,3 +31,17 @@ VITE_SHOPIFY_STOREFRONT_TOKEN=your_storefront_token
 ```
 
 If not set, the app uses local demo product data.
+
+## Deploy on Railway
+
+This repo is configured for Railway with `railway.json`.
+
+1. Create a new Railway project and link this GitHub repo.
+2. Railway will run:
+	- Build: `npm install && npm run build`
+	- Start: `npm run start`
+3. Add optional environment variables in Railway:
+	- `VITE_SHOPIFY_STORE_DOMAIN`
+	- `VITE_SHOPIFY_STOREFRONT_TOKEN`
+
+The app serves the production Vite build on `0.0.0.0:$PORT`.
