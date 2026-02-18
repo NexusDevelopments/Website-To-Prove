@@ -4,6 +4,7 @@ function Footer() {
       <div className="container footer-content">
         <p>© {new Date().getFullYear()} Mastery Of Sales. All rights reserved.</p>
         <p>Built with React and Shopify-ready commerce integration.</p>
+        <p>Created by CrxxrDev</p>
       </div>
     </footer>
   );
