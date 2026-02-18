@@ -412,6 +412,23 @@ a {
   flex-wrap: wrap;
 }
 
+.footer-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
 .overlay {
   position: fixed;
   inset: 0;
