@@ -33,9 +33,14 @@ function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
           >
-            <img
-              src="https://masteryofsales.com/cdn/shop/files/preview_images/49f01108956249b690173bc0cf86c50b.thumbnail.0000000000.jpg?v=1771292427&width=1400"
-              alt="Mastery Of Sales video preview"
+            <video
+              src="https://masteryofsales.com/cdn/shop/videos/c/vp/49f01108956249b690173bc0cf86c50b/49f01108956249b690173bc0cf86c50b.HD-1080p-7.2Mbps-74252392.mp4?v=0"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Mastery Of Sales introductory video"
             />
           </motion.div>
         </div>
