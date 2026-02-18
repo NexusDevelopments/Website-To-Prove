@@ -57,18 +57,18 @@ export async function getProducts() {
   return edges.map(({ node }) => ({
     id: node.handle || node.id,
     title: node.title,
-    subtitle: 'Shopify Product',
+    subtitle: 'Audiobook',
     description: node.description || 'Product description coming soon.',
     price: Number(node?.priceRange?.minVariantPrice?.amount || 0),
     image: node?.featuredImage?.url || localProducts[0].image,
-    video: localProducts[0].video,
+    video: null,
     badge: 'Live'
   }));
 }
 
 export function getCheckoutUrl() {
   if (!domain) {
-    return '/contact';
+    return 'https://masteryofsales.com/cart';
   }
   return `https://${domain}/cart`;
 }

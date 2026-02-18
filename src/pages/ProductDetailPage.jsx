@@ -64,12 +64,18 @@ function ProductDetailPage() {
           </Link>
         </div>
         <div className="video-wrap">
-          <iframe
-            src={product.video}
-            title={`${product.title} preview`}
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-          />
+          {product.video ? (
+            <iframe
+              src={product.video}
+              title={`${product.title} preview`}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <div className="media-fallback">
+              <img src={product.image} alt={product.title} />
+            </div>
+          )}
         </div>
       </div>
     </section>

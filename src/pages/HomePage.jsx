@@ -12,18 +12,18 @@ function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="eyebrow">Sales Mastery Platform</p>
-            <h1>Scale your sales confidence, scripts, and conversion rates.</h1>
+            <p className="eyebrow">Mastery Of Sales</p>
+            <h1>The Cybersecurity Sales System Built From the Solutions Architect Seat</h1>
             <p>
-              Built to mirror high-performance coaching storefront experiences with
-              a cleaner, faster modern React setup.
+              25+ years. $250M+ in career revenue. Frameworks that win complex
+              deals across federal, healthcare, and enterprise markets.
             </p>
             <div className="hero-actions">
               <Link to="/shop" className="btn btn-primary">
-                Explore Programs
+                Browse the Audiobooks
               </Link>
               <Link to="/about" className="btn btn-secondary">
-                Why It Works
+                Learn More
               </Link>
             </div>
           </motion.div>
@@ -34,16 +34,16 @@ function HomePage() {
             transition={{ duration: 0.7 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1400&q=80"
-              alt="Sales strategy team"
+              src="https://masteryofsales.com/cdn/shop/files/preview_images/49f01108956249b690173bc0cf86c50b.thumbnail.0000000000.jpg?v=1771292427&width=1400"
+              alt="Mastery Of Sales video preview"
             />
           </motion.div>
         </div>
       </section>
 
       <section className="container section-heading">
-        <h2>Featured Programs</h2>
-        <p>Direct response inspired structure, upgraded for speed and design.</p>
+        <h2>Our Audio Books</h2>
+        <p>Practical cybersecurity sales frameworks, audiobooks, and field-tested systems.</p>
       </section>
 
       <ProductsPage embedded />

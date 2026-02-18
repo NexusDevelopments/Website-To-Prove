@@ -1,14 +1,14 @@
 function AboutPage() {
   return (
     <section className="container page-simple">
-      <h1>About Mastery Growth</h1>
+      <h1>About Mastery Of Sales</h1>
       <p>
-        This storefront is structured for high-converting education and coaching
-        offers, with modern React performance, clear product hierarchy, and
-        conversion-focused calls to action.
+        Mastery Of Sales delivers practical cybersecurity sales education for
+        account executives, sales engineers, and solutions architects.
       </p>
       <p>
-        Replace demo media and copy with your licensed brand assets to launch.
+        Built from decades of frontline experience, these audiobook systems are
+        focused on real execution frameworks instead of hype tactics.
       </p>
     </section>
   );
